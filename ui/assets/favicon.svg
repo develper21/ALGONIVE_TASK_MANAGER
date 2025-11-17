@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="TaskFlow icon">
+  <defs>
+    <linearGradient id="bg" x1="12%" y1="8%" x2="88%" y2="92%">
+      <stop offset="0%" stop-color="#3ECF8E" />
+      <stop offset="45%" stop-color="#2EA872" />
+      <stop offset="100%" stop-color="#1F6F63" />
+    </linearGradient>
+    <linearGradient id="check" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95" />
+      <stop offset="100%" stop-color="#E6FFF5" stop-opacity="0.9" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="url(#bg)" />
+  <path d="M24.2 33.8l5.9 5.8 10.7-12.4" fill="none" stroke="url(#check)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M21 22c3.2-5.1 9.3-8.4 15.9-7.8 6.1 0.5 11.6 4.1 14.3 9.5 3.3 6.5 2.1 14.5-3.1 19.8-6.7 6.8-17.7 6.9-24.7 0.2-3.9-3.7-5.9-8.8-5.5-13.9" fill="none" stroke="rgba(255,255,255,0.35)" stroke-width="4" stroke-linecap="round" />
+</svg>
