@@ -11,14 +11,14 @@
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3" />
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript" />
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" alt="Vite" />
-  <a href="https://<YOUR_NETLIFY_DEPLOYMENT_URL>" target="_blank" rel="noopener">
+  <a href="https://algonivetaskmanager.netlify.app/" target="_blank" rel="noopener">
     <img src="https://img.shields.io/badge/Deployed%20on-Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white" alt="Netlify" />
   </a>
 </div>
 
 <p align="center">
-  <a href="https://<YOUR_NETLIFY_DEPLOYMENT_URL>" target="_blank" rel="noopener">
-    <img src="./docs/taskflow-dashboard.png" alt="TaskFlow dashboard preview" width="900" />
+  <a href="https://algonivetaskmanager.netlify.app/" target="_blank" rel="noopener">
+    <img src="./ui/assets/dashboard.png" alt="TaskFlow dashboard preview" width="900" />
   </a>
 </p>
 
