@@ -1,0 +1,12 @@
+# Node.js artifacts
+node_modules/
+*.log
+
+# UI build output
+ui/node_modules/
+ui/dist/
+
+# Editor folders
+.vscode/
+.idea/
+.DS_Store
