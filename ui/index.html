@@ -3,22 +3,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TaskFlow - Algonive</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+    <link rel="stylesheet" href="./css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
+    <!-- App Shell -->
     <div class="app-layout">
-        
+        <!-- Sidebar Navigation -->
         <aside class="sidebar">
             <div class="sidebar-header">
-                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
-                <h2>TaskFlow</h2>
+                <div class="sidebar-mark">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                </div>
+                <div class="sidebar-title">
+                    <h2>TaskFlow</h2>
+                    <p class="sidebar-subtitle">Algonive</p>
+                </div>
+                <span class="sidebar-tag">v1.0</span>
             </div>
-            
             <nav class="sidebar-nav">
                 <a href="#" class="nav-link active" id="nav-dashboard-link">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
                     <span>Dashboard</span>
                 </a>
                 <a href="#" class="nav-link" id="nav-tasks-link">
@@ -30,7 +36,6 @@
                     <span>Settings</span>
                 </a>
             </nav>
-            
             <div class="sidebar-profile">
                 <img src="https://i.pravatar.cc/100?img=12" alt="Demo User Avatar" class="profile-avatar" id="sidebar-avatar">
                 <div class="profile-info">
@@ -39,21 +44,26 @@
                 </div>
             </div>
         </aside>
-        
+        <!-- Main Content -->
         <div class="main-content">
+            <!-- Topbar Summary -->
             <header class="topbar">
                 <div class="topbar-greeting">
-                    <h2 id="topbar-greeting-name">Welcome Back, Algonive User!</h2>
-                    <p>Here's your task overview for today.</p>
+                    <h1 id="topbar-greeting-name">Welcome back, Algonive User!</h1>
                 </div>
-                <button class="btn btn-primary" id="open-modal-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
-                    <span>Add Task</span>
-                </button>
+                <div class="topbar-actions">
+                    <div class="topbar-insight">
+                        <span class="label">Total tasks</span>
+                        <strong id="topbar-total-count">0</strong>
+                    </div>
+                    <button class="btn btn-primary" id="open-modal-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                        <span>Add Task</span>
+                    </button>
+                </div>
             </header>
-            
+            <!-- Dashboard View -->
             <main class="container" id="dashboard-view">
-                
                 <div class="dashboard-stats">
                     <div class="stat-card">
                         <div class="stat-icon icon-total">
@@ -92,7 +102,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="dashboard-grid">
                     <div class="dashboard-card list-card">
                         <h3>Tasks Due Today</h3>
@@ -124,9 +133,8 @@
                             </ul>
                     </div>
                 </div>
-
             </main>
-
+            <!-- Task List View -->
             <main class="container" id="tasks-view" style="display: none;">
                 <div class="controls-wrapper">
                     <div class="search-box">
@@ -144,10 +152,27 @@
                 </div>
                 <div class="task-list" id="task-list"></div>
             </main>
-
+            <!-- Settings View -->
             <main class="container" id="settings-view" style="display: none;">
-                <div class="settings-grid">
-                    
+                <div class="section-heading">
+                    <div>
+                        <h2>Workspace Settings</h2>
+                        <p>Personalize TaskFlow to match your workflow.</p>
+                    </div>
+                    <div class="section-actions">
+                        <span class="chip chip-outline">Autosave enabled</span>
+                    </div>
+                </div>
+                <div class="settings-hero">
+                    <div class="settings-hero-copy">
+                        <h3>Customize your experience</h3>
+                        <p>Toggle appearance modes, update your profile, and keep your workspace in sync across devices.</p>
+                    </div>
+                    <div class="settings-hero-meta">
+                        <span class="chip chip-live">Real-time sync</span>
+                    </div>
+                </div>
+                <div class="settings-grid"> 
                     <div class="settings-card">
                         <h3>User Profile</h3>
                         <p>Update your profile information.</p>
@@ -165,40 +190,17 @@
                         </div>
                         <button class="btn btn-primary" id="profile-save-btn">Save Profile</button>
                     </div>
-
                     <div class="settings-card">
                         <h3>Appearance</h3>
                         <p>Customize the look and feel of the app.</p>
-                        
                         <div class="setting-item">
                             <label for="dark-mode-toggle">Dark Mode</label>
                             <label class="toggle-switch">
                                 <input type="checkbox" id="dark-mode-toggle">
                                 <span class="slider"></span>
                             </label>
-                        </div>
-                        
-                        <div class="setting-item">
-                            <label>Theme Color</label>
-                            <div class="color-picker">
-                                <input type="radio" name="theme-color" value="#4F46E5|#4338CA" id="color-indigo" checked>
-                                <label for="color-indigo" style="--theme-color: #4F46E5;"></label>
-                                
-                                <input type="radio" name="theme-color" value="#10B981|#059669" id="color-emerald">
-                                <label for="color-emerald" style="--theme-color: #10B981;"></label>
-                                
-                                <input type="radio" name="theme-color" value="#EF4444|#DC2626" id="color-red">
-                                <label for="color-red" style="--theme-color: #EF4444;"></label>
-                                
-                                <input type="radio" name="theme-color" value="#F59E0B|#D97706" id="color-amber">
-                                <label for="color-amber" style="--theme-color: #F59E0B;"></label>
-                                
-                                <input type="radio" name="theme-color" value="#6D28D9|#5B21B6" id="color-violet">
-                                <label for="color-violet" style="--theme-color: #6D28D9;"></label>
-                            </div>
-                        </div>
+                        </div>                        
                     </div>
-
                     <div class="settings-card danger-zone">
                         <h3>Danger Zone</h3>
                         <p>Be careful, these actions cannot be undone.</p>
@@ -207,38 +209,171 @@
                             Clear All Tasks
                         </button>
                     </div>
-
                 </div>
             </main>
         </div>
     </div> 
-
+    <!-- Task Composer Modal -->
     <div class="modal" id="task-modal">
-        <div class="modal-content">
+        <div class="modal-content modal-content--wide">
             <span class="close-modal" id="close-modal-btn">&times;</span>
-            <h2 id="modal-title">Add New Task</h2>
-            <form id="task-form" novalidate>
+            <div class="modal-inner">
+            <header class="modal-header">
+                <div>
+                    <p class="modal-eyebrow">Task Composer</p>
+                    <h2 id="modal-title">Add New Task</h2>
+                    <p class="modal-subtitle">Capture the essentials, plan the schedule, and attach proof in one go.</p>
+                </div>
+                <div class="modal-meta">
+                    <span class="chip chip-outline" id="task-last-updated">Draft</span>
+                </div>
+            </header>
+            <form id="task-form" class="modal-body" novalidate>
                 <input type="hidden" id="task-id-input">
-                
-                <div class="form-group">
-                    <label for="task-title">Title</label>
-                    <input type="text" id="task-title">
-                    <span class="error-message" id="title-error">Title is required.</span>
-                </div>
-                <div class="form-group">
-                    <label for="task-desc">Description</label>
-                    <textarea id="task-desc" rows="3"></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="task-due-date">Due Date</label>
-                    <input type="date" id="task-due-date">
-                    <span class="error-message" id="date-error">Due date is required.</span>
-                </div>
-                <button type="submit" class="btn btn-primary" id="form-submit-btn">Save Task</button>
+                <section class="modal-section">
+                    <div class="modal-section-heading">
+                        <h3>Overview</h3>
+                        <p>Give your task a clear objective and delivery timeline.</p>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="task-title">Task title <span>*</span></label>
+                            <input type="text" id="task-title" placeholder="Design onboarding flow">
+                            <span class="error-message" id="title-error">Title is required.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-due-date">Due date <span>*</span></label>
+                            <input type="date" id="task-due-date">
+                            <span class="error-message" id="date-error">Due date is required.</span>
+                        </div>
+                        <div class="form-group form-group--full">
+                            <label for="task-desc">Description</label>
+                            <textarea id="task-desc" rows="4" placeholder="Outline the goal, scope, and acceptance criteria..."></textarea>
+                        </div>
+                    </div>
+                </section>
+                <section class="modal-section">
+                    <div class="modal-section-heading">
+                        <h3>Planning</h3>
+                        <p>Prioritize and categorize so teammates know what to expect.</p>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="task-priority">Priority</label>
+                            <div class="priority-pills" id="priority-pill-group">
+                                <input type="radio" name="task-priority" id="priority-low" value="low">
+                                <label for="priority-low">Low</label>
+                                <input type="radio" name="task-priority" id="priority-medium" value="medium" checked>
+                                <label for="priority-medium">Medium</label>
+                                <input type="radio" name="task-priority" id="priority-high" value="high">
+                                <label for="priority-high">High</label>
+                                <input type="radio" name="task-priority" id="priority-critical" value="critical">
+                                <label for="priority-critical">Critical</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="task-tags">Tags</label>
+                            <input type="text" id="task-tags" placeholder="product, ui, backend">
+                            <small class="field-hint">Separate tags with commas to create quick filters.</small>
+                        </div>
+                        <div class="form-group form-group--full">
+                            <label for="task-notes">Internal notes</label>
+                            <textarea id="task-notes" rows="3" placeholder="Add implementation details, links, or reminders."></textarea>
+                        </div>
+                    </div>
+                </section>
+                <section class="modal-section">
+                    <div class="modal-section-heading">
+                        <h3>Attachments</h3>
+                        <p>Drop in screenshots, documents, or any artefacts that prove completion.</p>
+                    </div>
+                    <div class="attachments-area">
+                        <label for="task-attachments" class="attachment-dropzone" id="attachment-dropzone">
+                            <div class="dropzone-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 5 17 10"></polyline><line x1="12" y1="5" x2="12" y2="19"></line></svg>
+                            </div>
+                            <div class="dropzone-copy">
+                                <strong>Upload proof files</strong>
+                                <span>Drag & drop or <span class="linkish">browse</span> to attach upto 10 files.</span>
+                                <span class="dropzone-hint">Accepted: images, PDFs, docs up to 5MB each.</span>
+                            </div>
+                            <input type="file" id="task-attachments" multiple hidden>
+                        </label>
+                        <ul class="attachment-list" id="attachment-list"></ul>
+                    </div>
+                </section>
+                <footer class="modal-footer">
+                    <button type="button" class="btn btn-secondary" id="modal-save-draft-btn">Save Draft</button>
+                    <div class="modal-footer-actions">
+                        <button type="button" class="btn btn-secondary" id="modal-cancel-btn">Cancel</button>
+                        <button type="submit" class="btn btn-primary" id="form-submit-btn">Save Task</button>
+                    </div>
+                </footer>
             </form>
+            </div>
         </div>
     </div>
-
+    <!-- Task Detail Modal -->
+    <div class="modal" id="task-detail-modal">
+        <div class="modal-content modal-content--wide">
+            <span class="close-modal" id="close-detail-modal-btn">&times;</span>
+            <div class="modal-inner">
+            <header class="modal-header">
+                <div>
+                    <p class="modal-eyebrow">Task Details</p>
+                    <h2 id="detail-title">Task Title</h2>
+                    <p class="modal-subtitle" id="detail-description">Description placeholder</p>
+                </div>
+                <div class="modal-meta detail-meta">
+                    <span class="chip chip-outline" id="detail-status">Pending</span>
+                    <span class="chip chip-muted" id="detail-due-date">Due: --</span>
+                </div>
+            </header>
+            <div class="modal-body modal-body--detail">
+                <section class="modal-section">
+                    <div class="modal-section-heading">
+                        <h3>Summary</h3>
+                        <p>Quick view of priority, tags, and notes.</p>
+                    </div>
+                    <div class="detail-grid">
+                        <div class="detail-card">
+                            <span class="detail-label">Priority</span>
+                            <strong id="detail-priority">Medium</strong>
+                        </div>
+                        <div class="detail-card">
+                            <span class="detail-label">Tags</span>
+                            <div id="detail-tags" class="detail-tags"></div>
+                        </div>
+                        <div class="detail-card detail-card--full">
+                            <span class="detail-label">Internal notes</span>
+                            <p id="detail-notes">No notes provided.</p>
+                        </div>
+                    </div>
+                </section>
+                <section class="modal-section">
+                    <div class="modal-section-heading">
+                        <h3>Proof of work</h3>
+                        <p>Upload or review files that validate task completion.</p>
+                    </div>
+                    <div class="attachments-area">
+                        <label for="detail-attachments" class="attachment-dropzone" id="detail-attachment-dropzone">
+                            <div class="dropzone-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 5 17 10"></polyline><line x1="12" y1="5" x2="12" y2="19"></line></svg>
+                            </div>
+                            <div class="dropzone-copy">
+                                <strong>Add more evidence</strong>
+                                <span>Drag & drop or <span class="linkish">browse</span> to upload additional files.</span>
+                            </div>
+                            <input type="file" id="detail-attachments" multiple hidden>
+                        </label>
+                        <ul class="attachment-list" id="detail-attachment-list"></ul>
+                    </div>
+                </section>
+            </div>
+            </div>
+        </div>
+    </div>
+    <!-- Delete Confirmation Modal -->
     <div class="modal" id="confirm-modal">
         <div class="modal-content confirm-modal-content">
             <h2>Confirm Deletion</h2>
@@ -249,7 +384,7 @@
             </div>
         </div>
     </div>
-
+    <!-- Clear Data Confirmation Modal -->
     <div class="modal" id="clear-data-modal">
         <div class="modal-content confirm-modal-content">
             <h2>Clear All Data?</h2>
@@ -260,8 +395,10 @@
             </div>
         </div>
     </div>
-
+    <!-- Toast Notifications -->
     <div id="toast-container"></div>
-    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/docx@8.5.0/build/index.umd.js"></script>
+    <script src="./scripts/script.js" type="module"></script>
 </body>
 </html>
