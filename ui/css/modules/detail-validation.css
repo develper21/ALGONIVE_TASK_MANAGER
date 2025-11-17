@@ -1,0 +1,76 @@
+/* Detail modal cards */
+.detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+}
+
+.detail-card {
+    padding: 1.1rem 1.25rem;
+    border-radius: 12px;
+    background: rgba(148, 163, 184, 0.12);
+    border: 1px solid rgba(148, 163, 184, 0.2);
+}
+
+html[data-theme="dark"] .detail-card {
+    background: rgba(148, 163, 184, 0.18);
+}
+
+.detail-card--full {
+    grid-column: 1 / -1;
+}
+
+.detail-label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: rgba(71, 85, 105, 0.75);
+    margin-bottom: 0.35rem;
+}
+
+html[data-theme="dark"] .detail-label {
+    color: rgba(148, 163, 184, 0.75);
+}
+
+.detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+}
+
+.detail-tags span {
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    background: rgba(62, 207, 142, 0.16);
+    color: var(--primary-color);
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.detail-tags .empty {
+    background: rgba(148, 163, 184, 0.16);
+    color: rgba(71, 85, 105, 0.75);
+}
+
+/* Validation helpers */
+.error-message {
+    color: var(--danger-color);
+    background: rgba(239, 68, 68, 0.1);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    display: none;
+}
+
+.form-group input.invalid,
+.form-group textarea.invalid {
+    border-color: var(--danger-color);
+}
+
+.form-group input.invalid + .error-message,
+.form-group textarea.invalid + .error-message {
+    display: block;
+}
