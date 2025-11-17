@@ -1,0 +1,406 @@
+/* ================================
+   Task View: Filters & Cards
+   ================================ */
+.controls-wrapper,
+.task-card,
+.empty-state,
+.settings-card,
+.dashboard-card,
+.stat-card {
+    background: var(--bg-secondary);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+html[data-theme="light"] .controls-wrapper,
+html[data-theme="light"] .task-card,
+html[data-theme="light"] .empty-state,
+html[data-theme="light"] .settings-card,
+html[data-theme="light"] .dashboard-card,
+html[data-theme="light"] .stat-card {
+    background: rgba(255, 255, 255, 0.93);
+    border-color: rgba(15, 23, 42, 0.07);
+    box-shadow: 0 22px 40px -26px rgba(15, 23, 42, 0.35);
+}
+
+.controls-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1.25rem;
+    border-radius: 8px;
+}
+
+.search-box {
+    flex-grow: 1;
+    position: relative;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 0.6rem 0.8rem;
+    padding-left: 2.5rem;
+    border-radius: 6px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.search-box input::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.8;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px var(--primary-color);
+    background: var(--bg-accent);
+}
+
+.search-box svg {
+    position: absolute;
+    left: 0.75rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-secondary);
+}
+
+.filter-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-controls label {
+    font-weight: 500;
+    color: var(--text-secondary);
+}
+
+.filter-controls select {
+    padding: 0.6rem;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.filter-controls select option {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.task-card {
+    position: relative;
+    border-radius: 16px;
+    padding: 1.6rem;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.02) 0%, rgba(62, 207, 142, 0.08) 100%);
+    border: 1px solid rgba(62, 207, 142, 0.22);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+html[data-theme="light"] .task-card {
+    background: linear-gradient(140deg, rgba(255, 255, 255, 0.98) 0%, rgba(214, 248, 231, 0.45) 100%);
+    border-color: rgba(15, 23, 42, 0.08);
+}
+
+.task-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--primary-color);
+}
+
+.task-card.completed {
+    border-color: rgba(34, 197, 94, 0.45);
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.16) 0%, rgba(148, 163, 184, 0.08) 100%);
+    position: relative;
+}
+
+.task-card.completed::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(circle at 15% 15%, rgba(62, 207, 142, 0.28), transparent 60%);
+    pointer-events: none;
+    opacity: 0.9;
+}
+
+.task-card.completed .task-card-content {
+    position: relative;
+    z-index: 1;
+}
+
+.task-card.completed h3 {
+    color: var(--success-color);
+}
+
+.task-card.completed .task-card-description {
+    color: rgba(15, 23, 42, 0.65);
+}
+
+html[data-theme="dark"] .task-card.completed .task-card-description {
+    color: rgba(226, 232, 240, 0.75);
+}
+
+.task-card.is-draft {
+    border-style: dashed;
+    border-color: rgba(148, 163, 184, 0.5);
+}
+
+.task-card-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.task-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.task-card-title-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.task-status {
+    align-self: flex-start;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.task-status.is-pending {
+    background: rgba(245, 158, 11, 0.12);
+    color: #B45309;
+}
+
+.task-status.is-overdue {
+    background: rgba(239, 68, 68, 0.16);
+    color: #B91C1C;
+}
+
+.task-status.is-warning {
+    background: rgba(251, 191, 36, 0.16);
+    color: #B45309;
+}
+
+.task-status.is-completed {
+    background: rgba(34, 197, 94, 0.18);
+    color: #047857;
+}
+
+.task-status.is-draft {
+    background: rgba(148, 163, 184, 0.22);
+    color: #475569;
+}
+
+.task-card h3 {
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+}
+
+.task-card-description {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    white-space: pre-wrap;
+}
+
+.task-card-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.task-actions-cluster {
+    display: inline-flex;
+    background: rgba(62, 207, 142, 0.12);
+    border-radius: 999px;
+    padding: 0.25rem;
+    border: 1px solid rgba(62, 207, 142, 0.25);
+    gap: 0.35rem;
+}
+
+.task-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.65rem;
+    margin-top: 0.5rem;
+}
+
+.priority-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.priority-pill--low { background: rgba(148, 163, 184, 0.16); color: #475569; }
+.priority-pill--medium { background: rgba(59, 130, 246, 0.16); color: #1D4ED8; }
+.priority-pill--high { background: rgba(245, 158, 11, 0.16); color: #B45309; }
+.priority-pill--critical { background: rgba(239, 68, 68, 0.18); color: #B91C1C; }
+
+.task-card-tags {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.task-tag {
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    background: rgba(148, 163, 184, 0.18);
+    color: #475569;
+}
+
+.task-tag--empty {
+    background: rgba(148, 163, 184, 0.12);
+    color: rgba(71, 85, 105, 0.7);
+}
+
+.task-attachments-count {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.25rem 0.6rem;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    background: rgba(62, 207, 142, 0.12);
+}
+
+.task-attachments-count svg {
+    width: 14px;
+    height: 14px;
+}
+
+.task-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.due-date {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(62, 207, 142, 0.12);
+    padding: 0.45rem 0.85rem;
+    border-radius: 999px;
+    font-weight: 600;
+    color: var(--text-primary);
+    border: 1px solid rgba(62, 207, 142, 0.22);
+}
+
+.due-date svg {
+    color: var(--primary-color);
+}
+
+.due-date.overdue {
+    background: rgba(239, 68, 68, 0.18);
+    border-color: rgba(239, 68, 68, 0.4);
+    color: #B91C1C;
+}
+
+.due-date.overdue svg {
+    color: var(--danger-color);
+}
+
+.due-date.warning {
+    background: rgba(245, 158, 11, 0.18);
+    border-color: rgba(245, 158, 11, 0.35);
+    color: #B45309;
+}
+
+.due-date.warning svg {
+    color: var(--warning-color);
+}
+
+.due-date.no-date {
+    background: rgba(148, 163, 184, 0.18);
+    border-color: rgba(148, 163, 184, 0.35);
+    color: #475569;
+}
+
+html[data-theme="dark"] .due-date {
+    background: rgba(62, 207, 142, 0.2);
+    color: var(--text-primary);
+}
+
+html[data-theme="dark"] .due-date.no-date {
+    background: rgba(148, 163, 184, 0.24);
+    border-color: rgba(148, 163, 184, 0.4);
+    color: #CBD5F5;
+}
+
+html[data-theme="dark"] .due-date.overdue {
+    background: rgba(239, 68, 68, 0.2);
+    border-color: rgba(239, 68, 68, 0.5);
+    color: #F87171;
+}
+
+html[data-theme="dark"] .due-date.warning {
+    background: rgba(245, 158, 11, 0.2);
+    border-color: rgba(245, 158, 11, 0.45);
+    color: #FBBF24;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem;
+    border-radius: 8px;
+    text-align: center;
+    border-style: dashed;
+}
+
+.empty-state svg {
+    width: 60px;
+    height: 60px;
+    color: var(--primary-color);
+    opacity: 0.6;
+    margin-bottom: 1.5rem;
+}
+
+.empty-state h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+}
