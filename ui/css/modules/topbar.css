@@ -1,0 +1,80 @@
+/* ================================
+                Topbar
+   ================================ */
+.topbar {
+    padding: 1.75rem 1.75rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: var(--bg-secondary);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.topbar-greeting {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.topbar-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    width: fit-content;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.35rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(62, 207, 142, 0.14);
+    color: var(--primary-color);
+}
+
+.topbar-greeting h1 {
+    font-size: 1.9rem;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+.topbar-greeting p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    max-width: 420px;
+}
+
+.topbar-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.topbar-insight {
+    display: flex;
+    flex-direction: column;
+    padding: 0.6rem 0.9rem;
+    border-radius: 12px;
+    background: var(--bg-secondary);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    text-align: right;
+}
+
+.topbar-insight .label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.topbar-insight strong {
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
